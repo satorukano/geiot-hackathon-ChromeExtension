@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    container_name: geiot-hackathon
+    image: node:18
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    entrypoint: ./app/scripts/entrypoint.sh
+
+volumes:
+  node_modules:
