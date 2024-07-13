@@ -1,0 +1,1 @@
+alias dev-run="docker-compose up"
