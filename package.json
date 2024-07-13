@@ -9,7 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "axios": "^1.7.2",
+    "html2canvas": "^1.4.1",
+    "vue": "^3.4.29",
+    "vuetify": "^3.6.13-3.7.0-beta.0.0"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.23",

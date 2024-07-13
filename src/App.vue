@@ -1,17 +1,18 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Uploader from './components/Uploader.vue'
+import ImageLister from './components/ImageLister.vue'
+import { ref } from 'vue'
+
+const uploaded = ref(false)
+
+const checkUploaded = (input) => {
+  uploaded.value = input
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <ImageLister v-if="uploaded"/>
+  <Uploader @emitTest="checkUploaded" v-else/>
 </template>
 
 <style scoped>
