@@ -10,6 +10,7 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 git clone https://github.com/satorukano/geiot-hackathon-ChromeExtension.git
 cd geiot-hackathon-ChromeExtension
 source aliases.sh
+run-dev
 ```
 ## 拡張機能の選択
 1. Chromeの拡張機能のマネージャにいく
