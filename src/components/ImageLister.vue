@@ -14,25 +14,45 @@
             processFinished.value = res.data.status == "completed" ? true : false
             if (processFinished.value) {
                 const response = await axios.get('http://localhost:8000/results?execution_id=tintin')
-                // console.log(response.data.results[0])
-                const binaryString = atob(response.data.results[0]);
-                const binaryLength = binaryString.length;
-                const bytes = new Uint8Array(binaryLength);
+                console.log(response.data.results[4])
+                response.data.results.forEach((result) => {
+                    const binaryString = atob(result);
+                    const binaryLength = binaryString.length;
+                    const bytes = new Uint8Array(binaryLength);
 
-                for (let i = 0; i < binaryLength; i++) {
-                    bytes[i] = binaryString.charCodeAt(i);
-                }
+                    for (let i = 0; i < binaryLength; i++) {
+                        bytes[i] = binaryString.charCodeAt(i);
+                    }
 
-                var blob = new Blob([bytes], { type: 'image/png' });
+                    var blob = new Blob([bytes], { type: 'image/png' });
 
-                const url = URL.createObjectURL(blob);
+                    const url = URL.createObjectURL(blob);
 
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'ex.png';
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'ex.png';
 
-                document.body.appendChild(link);
-                link.click();
+                    document.body.appendChild(link);
+                    link.click();
+                })
+                // const binaryString = atob(response.data.results[4]);
+                // const binaryLength = binaryString.length;
+                // const bytes = new Uint8Array(binaryLength);
+
+                // for (let i = 0; i < binaryLength; i++) {
+                //     bytes[i] = binaryString.charCodeAt(i);
+                // }
+
+                // var blob = new Blob([bytes], { type: 'image/png' });
+
+                // const url = URL.createObjectURL(blob);
+
+                // const link = document.createElement('a');
+                // link.href = url;
+                // link.download = 'ex.png';
+
+                // document.body.appendChild(link);
+                // link.click();
             }
         }
     })
