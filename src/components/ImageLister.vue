@@ -53,12 +53,47 @@
 
 <template>
     <div v-if="!processFinished" class="card">
-        <v-progress-circular
+      <v-progress-circular
         color="primary"
         indeterminate
-        ></v-progress-circular>
+      ></v-progress-circular>
     </div>
     <div v-else>
-        <v-img :src="imageSrcList[0]" :width="300" cover></v-img>
+      <v-card>
+        <v-tabs
+          v-model="tab"
+          bg-color="primary"
+        >
+          <v-tab value="one">0</v-tab>
+          <v-tab value="two">1</v-tab>
+          <v-tab value="three">2</v-tab>
+          <v-tab value="four">3</v-tab>
+          <v-tab value="five">4</v-tab>
+        </v-tabs>
+  
+        <v-card-text>
+          <v-tabs-window v-model="tab">
+            <v-tabs-window-item value="one">
+              <v-img :src="imageSrcList[0]" :width="300" cover></v-img>
+            </v-tabs-window-item>
+  
+            <v-tabs-window-item value="two">
+              <v-img :src="imageSrcList[1]" :width="300" cover></v-img>
+            </v-tabs-window-item>
+  
+            <v-tabs-window-item value="three">
+              <v-img :src="imageSrcList[2]" :width="300" cover></v-img>
+            </v-tabs-window-item>
+  
+            <v-tabs-window-item value="four">
+              <v-img :src="imageSrcList[3]" :width="300" cover></v-img>
+            </v-tabs-window-item>
+  
+            <v-tabs-window-item value="five">
+              <v-img :src="imageSrcList[4]" :width="300" cover></v-img>
+            </v-tabs-window-item>
+          </v-tabs-window>
+        </v-card-text>
+      </v-card>
     </div>
-</template>
+  </template>
