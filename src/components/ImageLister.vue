@@ -7,6 +7,8 @@
 
     const imageSrcList = ref([])
 
+    const tab = ref(null)
+
     const blobToDataURL = (blob) => {
         return new Promise((resolve, reject) => {
             const reader = new FileReader()
