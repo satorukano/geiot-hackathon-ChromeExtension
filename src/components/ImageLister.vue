@@ -5,7 +5,16 @@
 
     const processFinished = ref(false)
 
-    const imageSrc = ref("")
+    const imageSrcList = ref([])
+
+    const blobToDataURL = (blob) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader()
+            reader.onloadend = () => resolve(reader.result)
+            reader.onerror = reject
+            reader.readAsDataURL(blob)
+        })
+    }
 
     onMounted(async() => {
         while (!processFinished.value) {
@@ -14,7 +23,6 @@
             processFinished.value = res.data.status == "completed" ? true : false
             if (processFinished.value) {
                 const response = await axios.get('http://localhost:8000/results?execution_id=tintin')
-                console.log(response.data.results[4])
                 response.data.results.forEach((result) => {
                     const binaryString = atob(result);
                     const binaryLength = binaryString.length;
@@ -27,32 +35,15 @@
                     var blob = new Blob([bytes], { type: 'image/png' });
 
                     const url = URL.createObjectURL(blob);
+                    imageSrcList.value.push(url)
 
                     const link = document.createElement('a');
                     link.href = url;
                     link.download = 'ex.png';
 
                     document.body.appendChild(link);
-                    link.click();
+                    // link.click();
                 })
-                // const binaryString = atob(response.data.results[4]);
-                // const binaryLength = binaryString.length;
-                // const bytes = new Uint8Array(binaryLength);
-
-                // for (let i = 0; i < binaryLength; i++) {
-                //     bytes[i] = binaryString.charCodeAt(i);
-                // }
-
-                // var blob = new Blob([bytes], { type: 'image/png' });
-
-                // const url = URL.createObjectURL(blob);
-
-                // const link = document.createElement('a');
-                // link.href = url;
-                // link.download = 'ex.png';
-
-                // document.body.appendChild(link);
-                // link.click();
             }
         }
     })
@@ -67,5 +58,7 @@
         indeterminate
         ></v-progress-circular>
     </div>
-    <Images v-else imageSrc="imageSrc"/>
+    <div v-else>
+        <v-img :src="imageSrcList[0]" :width="300" cover></v-img>
+    </div>
 </template>
