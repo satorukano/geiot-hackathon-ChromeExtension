@@ -65,34 +65,35 @@
         <v-tabs
           v-model="tab"
           bg-color="primary"
+          align-tabs="center"
         >
-          <v-tab value="one">0</v-tab>
-          <v-tab value="two">1</v-tab>
-          <v-tab value="three">2</v-tab>
-          <v-tab value="four">3</v-tab>
-          <v-tab value="five">4</v-tab>
+          <!-- <v-tab value="one">0</v-tab> -->
+          <!-- <v-tab value="two">1</v-tab> -->
+          <v-tab value="three">Normal</v-tab>
+          <v-tab value="four">Blindless</v-tab>
+          <v-tab value="five">Fixed-Blindless</v-tab>
         </v-tabs>
   
         <v-card-text>
           <v-tabs-window v-model="tab">
-            <v-tabs-window-item value="one">
-              <v-img :src="imageSrcList[0]" :width="300" cover></v-img>
+            <!-- <v-tabs-window-item value="one">
+              <v-img :src="imageSrcList[0]" :width="700" cover></v-img>
             </v-tabs-window-item>
   
             <v-tabs-window-item value="two">
-              <v-img :src="imageSrcList[1]" :width="300" cover></v-img>
-            </v-tabs-window-item>
+              <v-img :src="imageSrcList[1]" :width="700" cover></v-img>
+            </v-tabs-window-item> -->
   
             <v-tabs-window-item value="three">
-              <v-img :src="imageSrcList[2]" :width="300" cover></v-img>
+              <v-img :src="imageSrcList[2]" :width="700" cover></v-img>
             </v-tabs-window-item>
   
             <v-tabs-window-item value="four">
-              <v-img :src="imageSrcList[3]" :width="300" cover></v-img>
+              <v-img :src="imageSrcList[3]" :width="700" cover></v-img>
             </v-tabs-window-item>
   
             <v-tabs-window-item value="five">
-              <v-img :src="imageSrcList[4]" :width="300" cover></v-img>
+              <v-img :src="imageSrcList[4]" :width="700" cover></v-img>
             </v-tabs-window-item>
           </v-tabs-window>
         </v-card-text>
