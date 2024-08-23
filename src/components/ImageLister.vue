@@ -84,16 +84,16 @@
               <v-img :src="imageSrcList[1]" :width="700" cover></v-img>
             </v-tabs-window-item> -->
   
-            <v-tabs-window-item value="three">
+            <v-tabs-window-item value="three" transition="fade-transition">
+              <v-img :src="imageSrcList[0]" :width="700" cover></v-img>
+            </v-tabs-window-item>
+  
+            <v-tabs-window-item value="four" transition="fade-transition">
+              <v-img :src="imageSrcList[1]" :width="700" cover></v-img>
+            </v-tabs-window-item>
+  
+            <v-tabs-window-item value="five" transition="fade-transition">
               <v-img :src="imageSrcList[2]" :width="700" cover></v-img>
-            </v-tabs-window-item>
-  
-            <v-tabs-window-item value="four">
-              <v-img :src="imageSrcList[3]" :width="700" cover></v-img>
-            </v-tabs-window-item>
-  
-            <v-tabs-window-item value="five">
-              <v-img :src="imageSrcList[4]" :width="700" cover></v-img>
             </v-tabs-window-item>
           </v-tabs-window>
         </v-card-text>
